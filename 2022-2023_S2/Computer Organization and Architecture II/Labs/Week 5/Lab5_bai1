@@ -1,0 +1,190 @@
+.data
+	S1: .asciiz "Cac phan thu cua mang array1 la: "
+	array1: .word 5,6,7,8,1,2,3,9,10,4
+	size1: .word 10
+	
+	S2: .asciiz "\nCac phan thu cua mang array2 la: "
+	array2: .byte 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+	size2: .word 16
+	
+	S3: .asciiz "\nCac phan thu cua mang array3 la: "
+	array3: .space 8
+	size3: .word 8
+	
+	S4: .asciiz "\nNhap mang can tim (mang 1,2,3): "
+	S5: .asciiz "Nhap chi so cua phan tu can tim trong mang: "
+	S6: .asciiz "Phan tu can tim la: "
+	Space: .asciiz " "
+.text
+main:
+	#xuat ra chuoi S1
+	li $v0, 4
+	la $a0, S1
+	syscall 
+	
+	add $t0, $0, $0		#$t0 = i= 0
+	la $s0, array1		#$s0 = $array[0]
+	lw $t1, size1($0)	#$t1 = size1
+LOOP1:
+	bge	$t0, $t1, EXIT1		#if (i >= size1) EXIT1
+	sll 	$t2, $t0, 2		#t2 = t0 * 4
+	add	$t3, $s0, $t2		#t3 = &array1[0] + t2
+	lw	$t4, 0($t3)	#$t4 = $t3
+	# xuat gia tri cua phan tu trong mang array1
+	li	$v0, 1
+	move	$a0, $t4
+	syscall
+	# xuat cac cac khoang trang giua cac phan tu
+	li	$v0, 4
+	la	$a0, Space
+	syscall
+	
+	addi $t0, $t0, 1		# i++
+	j LOOP1		# nhay toi LOOP1
+	
+EXIT1:
+	# xuat ra chuoi S2
+	li	$v0, 4
+	la	$a0, S2
+	syscall
+	
+	add 	$t0, $0, $0		#$t0 = i = 0
+	la	$s0, array2		#$s0 = &array2[0]
+	lw	$t1, size2($0)		#$t1 = size2
+LOOP2:
+	bge	$t0, $t1, EXIT2		#if (i>=size2) EXIT2
+	add	$t2, $s0, $t0		#$t2 = &array2[0] + t0
+	lb	$t3, 0($t2)		#$t3 = $t2 (load byte)
+	#xuat ra gia tri cac phan tu trong mang array2
+	li	$v0, 1
+	move	$a0, $t3
+	syscall
+	#xuat ra khoang trang giua cac phan tu trong  mang array2
+	li	$v0, 4
+	la	$a0, Space
+	syscall
+
+	addi $t0, $t0, 1		# i++
+	j LOOP2		# nhay toi LOOP2
+
+EXIT2:
+	add 	$t0, $0, $0		#i = 0
+	la	$s0, array3		#$s3 = &array3[0]
+	lw	$s1, size3($0)		#$s1 = size3
+	
+	add 	$t1, $0, $0		#j=0
+	la	$s2, array2		#s2 = &array2[0]
+	lw	$s3, size2($0)		#s3 = size2
+	
+	subi 	$t2, $s3, 1		#k = size2-1
+LOOP3:
+	bge	$t0, $s1, EXIT3		#if(j >= size3) EXIT3
+	add	$t5, $s2, $t1		#$t5 = $s2 + $t1
+	add	$t6, $s2, $t2		#$t6 = $s2 + $t2
+	add	$t7, $s0, $t0		#$t7 = $s0 + $t0
+	
+	lb	$s4, 0($t5)		# $s4 = $t5
+	lb	$s5, 0($t6)		# $s5 = $t6
+	add	$s7, $s4, $s5		# $s7 = $s4 + $s5
+	sb	$s7, 0($t7)		# luu $t7 vao bo nho thong qua $s7
+	
+	addi	$t0, $t0, 1	# i++
+	addi	$t1, $t1, 1	# j++
+	subi	$t2, $t2, 1	# k--
+	j LOOP3		# nhay toi LOOP3
+EXIT3:
+	# xuat ra chuoi S3
+	li	$v0, 4
+	la	$a0, S3
+	syscall
+	
+	add 	$t0, $0, $0	# i=0	
+	la	$s0, array3	# $s0 = &array3	
+	lw	$t1, size3($0)	# $t1 = size3
+LOOP4:
+	bge	$t0, $t1, EXIT4		
+	add	$t2, $s0, $t0		
+	lb	$t3, 0($t2)
+	# xuat gia tri cac phan tu cua mang array3
+	li	$v0, 1
+	move	$a0, $t3
+	syscall
+	# xuat khoang trang giua cac phan tu
+	li	$v0, 4
+	la	$a0, Space
+	syscall
+	
+	addi $t0, $t0, 1 	# i++		
+	j LOOP4		# nhay toi LOOP4
+EXIT4:
+	# xuat ra chuoi S4
+	li	$v0, 4
+	la	$a0, S4
+	syscall
+	# nhap vao mang can tim
+	li $v0, 5
+	syscall
+	move $t0, $v0		
+
+	# xuat ra chuoi S5
+	li	$v0, 4
+	la	$a0, S5
+	syscall
+	# nhap vao chi so cua phan tu can tim trong mang
+	li 	$v0, 5
+	syscall
+	move 	$t8, $v0
+	# khoi tao cac lua chon 1,2,3
+	addi 	$t1, $0, 1	#$t1=1
+	addi 	$t2, $0, 2	#$t2=2
+	addi 	$t3, $0, 3	#$t3=3
+	# xuat ra chuoi S6
+	li	$v0, 4
+	la	$a0, S6
+	syscall
+	
+	bne 	$t0, $t1, JUMP1		# if (luachon != 1) JUMP1
+	# duyet qua mang array1
+	la 	$s0, array1($0)	#s0 = &array1[0]
+	lw 	$s2, size1($0)	#size1
+	
+	sll 	$t4, $t8, 2
+	add 	$t5, $s0, $t4
+	lw	$t6, 0($t5)
+	# xuat ra phan tu can tim
+	li $v0, 1
+	move $a0, $t6
+	syscall
+	
+JUMP1:
+	bne $t0, $t2, JUMP2	# if (luachon != 2) JUMP2
+	# duyet qua mang array2
+	la 	$s0, array2($0)	#s1=&array2[0]
+	lw 	$s2, size2($0)	#size2
+	
+	add 	$t5, $s1, $t8
+	lb	$t6, 0($t5)
+	# xuat ra phan tu can tim
+	li $v0, 1
+	move $a0, $t6
+	syscall
+JUMP2:
+	bne $t0, $t3, EXIT5	# if (luachon != 3) EXIT5
+	# duyet qua mang array3
+	la 	$s1, array3($0)	#s1 = &array3[0]
+	lw 	$s2, size3($0)	#$s2 = size3
+	
+	add 	$t5, $s1, $t8	#$t5= $t1+ $t8
+	lb	$t6, 0($t5)	#$t6= $t5
+	# xuat phan tu can tim
+	li $v0, 1
+	move $a0, $t6
+	syscall
+EXIT5:
+	# ket thuc chuong trinh
+	li $v0, 10
+	syscall
+
+
+	
+	

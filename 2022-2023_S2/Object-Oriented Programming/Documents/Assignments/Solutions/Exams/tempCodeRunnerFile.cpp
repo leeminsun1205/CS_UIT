@@ -1,0 +1,1 @@
+freopen("Logictics.inp", "r", stdin);

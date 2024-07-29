@@ -1,0 +1,108 @@
+import math
+'''Định nghĩa hàm log_2(n)'''
+def log2(n):
+  return math.log(n) / math.log(2)
+
+'''Danh sách các hàm phức tạp tính toán thời gian chạy'''
+complexities = [lambda n: math.sqrt(n),  # f(n)=sqrt()
+                lambda n: n,             # f(n)=n
+                lambda n: n * log2(n),  # f(n)=log_2(n)
+                lambda n: n ** 2,       # f(n)=n^2
+                lambda n: n ** 3,       # f(n)=n^3
+                lambda n: 2 ** n,       # f(n)=2^n
+                lambda n: math.factorial(n)]  # f(n)=n!
+
+'''Giới hạn tối đa cho từng hàm phức tạp'''
+max_bound = [1e40, 1e20, 1e20, 1e10, 1e10, 100, 100]
+
+'''Thời gian thực thi tương ứng, với số phép tính máy tính có thể 
+tính toán trong 1 giây là 10^6'''
+times = [1000000,                            # 1 second
+         1000000 * 60,                       # 1 minute
+         1000000 * 60 * 60,                  # 1 hour
+         1000000 * 60 * 60 * 24,             # 1 day
+         1000000 * 60 * 60 * 24 * 30,        # 1 month
+         1000000 * 60 * 60 * 24 * 365,       # 1 year
+         1000000 * 60 * 60 * 24 * 365 * 100] # 1 century
+
+'''Hàm định dạng thời gian'''
+def format_time(t):
+  '''Tính số mũ của 10 cho giá trị thời gian t'''
+  exp = int(math.log10(t))
+  '''Tính hệ số cho giá trị thời gian t, làm tròn tới chữ số 
+  thập phân thứ 2'''
+  coeff = round(t / (10 ** exp), 2)
+  '''Kiểm tra nếu hệ số là 1.0'''
+  if coeff == 1.0:
+    '''Trả về chuỗi biểu diễn 10 mũ exp'''
+    return '10^{}'.format(exp)
+  else:
+    '''Trả về chuỗi biểu diễn hệ số nhân với 10 mũ exp'''
+    return '{}*10^{}'.format(coeff, exp)
+
+print('1 giây | 1 phút | 1 giờ | 1 ngày | 1 tháng | 1 năm | 1 thế kỷ')
+'''In ra các giá trị n lớn nhất có thể thực thi của hàm lgn'''
+print('lgn: 2^(', end='')
+print(') | 2^('.join(map(format_time, times)), end='')
+print(')')
+
+'''Duyệt qua từng hàm phức tạp tính toán thời gian chạy'''
+for k in range(len(complexities)):
+  '''Lấy hàm phức tạp tính toán thời gian chạy thứ k từ 
+  danh sách complexities'''
+  c = complexities[k]
+  '''Tạo một danh sách để lưu trữ giá trị lớn nhất của n cho từng 
+  thời gian tương ứng'''
+  values = []
+  '''Duyệt qua từng giá trị thời gian trong danh sách times'''
+  for t in times:
+    '''Khởi tạo biến left và right cho thuật toán tìm kiếm nhị phân'''
+    left, right = 0, int(max_bound[k])
+    '''Khởi tạo biến max_n để lưu trữ giá trị lớn nhất của n 
+    thỏa mãn thời gian t'''
+    max_n = 0
+    '''Thực hiện thuật toán tìm kiếm nhị phân để tìm giá trị lớn nhất 
+    của n thỏa mãn thời gian t'''
+    while left <= right:
+      mid = (left + right) // 2
+      '''Tính toán thời gian thực thi của hàm c với đầu vào là mid'''
+      value = c(mid)  
+      '''Nếu thời gian thực thi vượt quá thời gian t hoặc 
+      trở thành vô hướng'''
+      if value == float('inf') or value > t:
+        '''Giảm giá trị right để thuật toán tiếp tục tìm kiếm
+        ở phía bên trái'''
+        right = mid - 1  
+      else:
+        '''Tăng giá trị left để thuật toán tiếp tục tìm kiếm 
+        ở phía bên phải'''
+        left = mid + 1   
+        '''Cập nhật giá trị lớn nhất của n thỏa mãn thời gian t'''
+        max_n = max(max_n, mid)  
+    '''Sau khi tìm được giá trị lớn nhất của n cho thời gian t, 
+    thêm giá trị này vào danh sách values'''
+    values.append(max_n)
+
+  '''In ra giá trị n tương ứng cho từng thời gian và hàm phức tạp'''
+  if k < 3:
+    if (k==0):
+      print('sqrt(n):', end=' ')
+    if (k==1):
+      print('n:', end=' ')
+    if (k==2):
+      print('nlgn:', end=' ')
+    '''In ra giá trị lớn nhất của n cho mỗi thời gian tương ứng 
+    với hàm phức tạp theo định dạng {}.10^{}'''
+    print(' | '.join(map(lambda v: format_time(v), values)))
+  else:
+    if (k==3):
+      print('n^2:', end=' ')
+    if (k==4):
+      print('n^3:', end=' ')
+    if (k==5):
+      print('2^n:', end=' ')
+    if (k==6):
+      print('n!:', end=' ')
+    '''In ra giá trị lớn nhất của n cho mỗi thời gian tương ứng 
+    với hàm phức tạp, làm tròn xuống'''
+    print(' | '.join(map(lambda v: str(int(math.floor(v))), values)))

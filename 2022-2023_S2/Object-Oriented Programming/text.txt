@@ -1,0 +1,6 @@
+-Vẽ sơ đồ thiết kế không cần hàm tạo và hàm hủy
+-Chú ý các dữ liệu cần tính toán để thêm hàm get cho sơ đồ thiết kế
+-Chú ý nhập chuỗi mà trước đó là số thì phải cin.ignore()
+-Để tiết kiệm thời gian viết thẳng các hàm trong class và không cần 
+cout << "Nhap..."
+-Để đỡ phải tạo thêm 1 class viết các hàm xử lí của đề bài trong class

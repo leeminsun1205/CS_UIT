@@ -1,0 +1,126 @@
+.data
+	Size: .word 0
+	Arr: .word 0
+	S1: .asciiz	"Nhap cac so duong can tinh toan:\n"
+	S2: .asciiz	"\nSo nho nhat trong mang la: "
+	S3: .asciiz	"\nTong cac so le la: "
+	S4: .asciiz 	"Nhap khong hop le! Moi nhap lai!\n"
+	S5: .asciiz	"Nhap kich thuoc cua mang: "
+	S6: .asciiz	"\nKhong co so le nao trong mang\n"
+.text	
+	la $t5, Size
+	SIZE:
+		li $v0, 4
+		la $a0, S5
+		syscall
+		
+		li $v0, 5
+		syscall 
+		move $t4, $v0
+		bgt $t4, $0, CONTINUE
+		
+		li $v0, 4
+		la $a0, S4
+		syscall
+		
+		j SIZE
+CONTINUE:
+	sw $t4, ($t5)
+	la $t6, Size	
+	li $v0, 4
+	la $a0, S1
+	syscall
+	# nhap cac phan tu cua mang
+	la $s0, Arr 		#s0 = &arr[0]
+	lw $t0, ($t6)		#$t0 = size
+	sll $t1, $t0, 2		#$t1=$t0 * 4
+	add $s1, $s0, $t1	#$s1=$s0 + $t1
+LOOP1:
+	bge $s0, $s1, EXIT1	#if ($s0>=$s1) EXIT
+	WHILE:
+		li $v0, 5
+		syscall
+		sw $v0, ($s0)
+		lw $t2, ($s0)
+		bgt $t2, $0, NEXT
+		
+		li $v0, 4
+		la $a0, S4
+		syscall
+		
+		j WHILE
+NEXT:
+	addi $s0, $s0, 4
+	j LOOP1		#nhay toi lenh LOOP1
+EXIT1:
+	# xuat mang 
+	la $s0, Arr	#s0 tro den array
+	sll $t1, $t0, 2 #$t1 = $t0* 4
+	add $s1, $s0, $t1
+LOOP2:
+	bge $s0, $s1, EXIT2	#if ($s0>=$s1) EXIT2
+	
+	li $v0, 1
+	lw $a0, 0($s0)  #$a[0]= arr[i]
+	syscall
+	
+	li $v0, 11 #Space
+	li $a0, 0x20
+	syscall
+	
+	addi $s0, $s0, 4
+	j LOOP2		# nhay toi lenh LOOP2
+EXIT2:
+	# Xu ly cac phan tu trong mang
+	la $s0, Arr
+	sll $t1, $t0, 2		# $t1=$t0*4
+	add $s1, $s0, $t1
+	li $s2, 999999		# Khoi tao gia tri min = 999999
+	li $s3, 0
+	add $t4, $0, $0		# Khoi tao tong so chan = 0
+LOOP3:
+	bge $s0, $s1, EXIT3 	#if ($s0>=$s1) EXIT3
+	
+	lw $t2, ($s0)
+	
+	ble $s2, $t2, JUMP1
+	move $s2, $t2
+JUMP1:	
+	andi $t3, $t2, 1	#$t3=$t2 && 1
+	beq $t3, $0, JUMP	#if ($t3!=0) JUMP
+	add $t4, $t4, 1
+	add $s3, $s3, $t2	#$s3+=$t2
+	j JUMP	# nhay toi lenh JUMP
+JUMP:	
+	addi $s0, $s0, 4
+	j LOOP3	# nhay toi lenh LOOP3
+EXIT3:
+	# xuat chuoi S2
+	li $v0, 4
+	la $a0, S2
+	syscall
+	# xuat ra so nho nhat
+	li $v0, 1
+	move $a0, $s2
+	syscall
+
+	bne $t4, $0, JUMP2
+	li $v0, 4
+	la $a0, S6
+	syscall
+	j EXIT4
+JUMP2:
+	# xuat chuoi S3
+	li $v0, 4
+	la $a0, S3
+	syscall
+	# xuat ra tong cac so le
+	li $v0, 1
+	move $a0, $s3
+	syscall
+EXIT4:
+	# ket thuc chuong trinh
+	li $v0,10
+	syscall
+	
+	

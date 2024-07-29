@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự đoán điều kiện giấc ngủ</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Nhập các chi tiết để dự đoán</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="Gender">Giới tính:</label>
+                <select class="form-control" name="Gender" id="Gender">
+                    <option value="Male">Nam</option>
+                    <option value="Female">Nữ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Age">Tuổi:</label>
+                <input type="number" class="form-control" id="Age" name="Age" min="1" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="BMI">Chỉ số BMI:</label>
+                <input type="number" class="form-control" step="0.1" id="BMI" name="BMI" min="10" max="50" required>
+            </div>
+            <div class="form-group">
+                <label for="BP">Huyết áp:</label>
+                <input type="number" class="form-control" id="BP" name="BP" min="50" max="200" required>
+            </div>
+            <div class="form-group">
+                <label for="HR">Nhịp tim:</label>
+                <input type="number" class="form-control" id="HR" name="HR" min="30" max="180" required>
+            </div>
+            <div class="form-group">
+                <label for="WorkTime">Thời gian làm việc:</label>
+                <select class="form-control" name="WorkTime" id="WorkTime">
+                    <option value="Day">Ban ngày</option>
+                    <option value="Night">Ban đêm</option>
+                    <option value="Variable">Biến đổi</option>
+                    <option value="None">Không có</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Activity">Hoạt động (1-10):</label>
+                <input type="number" class="form-control" id="Activity" name="Activity" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="Stress">Căng thẳng (1-10):</label>
+                <input type="number" class="form-control" id="Stress" name="Stress" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="FoodHabit">Thói quen ăn uống:</label>
+                <select class="form-control" name="FoodHabit" id="FoodHabit">
+                    <option value="Yes">Có</option>
+                    <option value="No">Không</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ElectronicHabit">Thói quen sử dụng điện tử:</label>
+                <select class="form-control" name="ElectronicHabit" id="ElectronicHabit">
+                    <option value="Yes">Có</option>
+                    <option value="No">Không</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Temp">Nhiệt độ:</label>
+                <input type="number" class="form-control" id="Temp" name="Temp" min="15" max="40" required>
+            </div>
+            <div class="form-group">
+                <label for="Noise">Tiếng ồn:</label>
+                <select class="form-control" name="Noise" id="Noise">
+                    <option value="None">Không có</option>
+                    <option value="Low">Thấp</option>
+                    <option value="High">Cao</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="SleepDuration">Thời gian ngủ (giờ):</label>
+                <input type="number" class="form-control" id="SleepDuration" name="SleepDuration" min="1" max="12" required>
+            </div>
+            <div class="form-group">
+                <label for="SleepStart">Thời điểm bắt đầu ngủ (giờ):</label>
+                <input type="number" class="form-control" id="SleepStart" name="SleepStart" min="1" max="12" required>
+            </div>
+            <div class="form-group">
+                <label for="SleepQuality">Chất lượng giấc ngủ (1-10):</label>
+                <input type="number" class="form-control" id="SleepQuality" name="SleepQuality" min="1" max="10" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Dự đoán</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
