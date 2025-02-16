@@ -1,0 +1,273 @@
+#fgvc, M=16, shots=16, False, end
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpend/eps4_alpha2.67_step3/seed0" \
+    --dataset "FGVCAircraft" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpend/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpend/eps4_alpha2.67_step3/seed0" \
+    --dataset "FGVCAircraft" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpend/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpend/eps4_alpha2.67_step3/seed0" \
+    --dataset "FGVCAircraft" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpend/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+
+#DTD, M=1, shots=-1, False 
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/dtd/APT/vit_b32_-1shots/nctx1_cscFalse_ctpend/eps4_alpha2.67_step3/seed0" \
+    --dataset "DescribableTextures" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/dtd/APT/vit_b32_-1shots/nctx1_cscFalse_ctpend/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/dtd/APT/vit_b32_-1shots/nctx1_cscFalse_ctpend/eps4_alpha2.67_step3/seed0" \
+    --dataset "DescribableTextures" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/dtd/APT/vit_b32_-1shots/nctx1_cscFalse_ctpend/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/dtd/APT/vit_b32_-1shots/nctx1_cscFalse_ctpend/eps4_alpha2.67_step3/seed0" \
+    --dataset "DescribableTextures" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/dtd/APT/vit_b32_-1shots/nctx1_cscFalse_ctpend/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+	
+#front, M=16, shots=16, False
+
+#caltech101
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+	
+#fgvc_aircraft
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "FGVCAircraft" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+    
+#eurosat
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpfront/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+	
+#front, M=16, shots=16, True
+
+#caltech101
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+	
+#fgvc_aircraft
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "FGVCAircraft" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+    
+#eurosat
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpfront/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+
+#middle, M=16, shots=16, False
+
+#caltech101
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+	
+#fgvc_aircraft
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "FGVCAircraft" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+    
+#eurosat
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscFalse_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+	
+#middle, M=16, shots=16, True
+
+#caltech101
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "Caltech101" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/caltech101/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+	
+#fgvc_aircraft
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "FGVCAircraft" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/fgvc_aircraft/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
+    
+#eurosat
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp "'a photo of a {}'" \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_fp" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap "'a photo of a {}'" -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_fp_def_pt" \
+	
+python evaluate.py "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0" \
+    --dataset "EuroSAT" \
+    -ap prompter -cp prompter \
+    --attack "pgd" \
+    --save-path "/home/khoahocmaytinh2022/Desktop/MinhNhut/Dassl.pytorch/APT/apt/output_orig/eurosat/APT/vit_b32_16shots/nctx16_cscTrue_ctpmiddle/eps4_alpha2.67_step3/seed0/atk_pt_def_pt" \
